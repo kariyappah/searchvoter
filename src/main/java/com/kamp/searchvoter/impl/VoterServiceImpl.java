@@ -38,11 +38,15 @@ public class VoterServiceImpl implements VoterService {
     public List<Voter> findAllVoters() {
         if (!isXlsxFileUploaded) {
             addVoters();
+            isXlsxFileUploaded = true;
         }
         return voters;
     }
 
-    private void addVoters() {
+    private synchronized void addVoters() {
+        if (isXlsxFileUploaded) {
+            return;
+        }
         Resource resource = resourceLoader.getResource("classpath:votersdata.xlsx");
         try {
             XSSFWorkbook workbook = new XSSFWorkbook(resource.getInputStream());
@@ -60,8 +64,8 @@ public class VoterServiceImpl implements VoterService {
                 while (cellIterator.hasNext()) {
                     Cell cell = cellIterator.next();
                     switch (cellIndex) {
-                        case 0 -> voter.setPartNo((double)cell.getNumericCellValue());
-                        case 1 -> voter.setSlNo((double)cell.getNumericCellValue());
+                        case 0 -> voter.setPartNo((double) cell.getNumericCellValue());
+                        case 1 -> voter.setSlNo((double) cell.getNumericCellValue());
                         case 2 -> voter.setFullName(cell.getStringCellValue());
                         case 3 -> voter.setRelationName(cell.getStringCellValue());
                         case 4 -> voter.setAddress(cell.getStringCellValue());
