@@ -7,11 +7,11 @@ public class Voter {
     private String relationName;
     private String address;
     private String qualification;
-    private String business;
-    private Double age;
-    private String sex;
-    private String epicNumber;
-    private String photo;
+//    private String business;
+//    private Double age;
+//    private String sex;
+//    private String epicNumber;
+//    private String photo;
 
     public Voter() {
     }
@@ -64,45 +64,45 @@ public class Voter {
         this.address = address;
     }
 
-    public String getBusiness() {
-        return business;
-    }
-
-    public void setBusiness(String business) {
-        this.business = business;
-    }
-
-    public Double getAge() {
-        return age;
-    }
-
-    public void setAge(Double age) {
-        this.age = age;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getEpicNumber() {
-        return epicNumber;
-    }
-
-    public void setEpicNumber(String epicNumber) {
-        this.epicNumber = epicNumber;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
+//    public String getBusiness() {
+//        return business;
+//    }
+//
+//    public void setBusiness(String business) {
+//        this.business = business;
+//    }
+//
+//    public Double getAge() {
+//        return age;
+//    }
+//
+//    public void setAge(Double age) {
+//        this.age = age;
+//    }
+//
+//    public String getSex() {
+//        return sex;
+//    }
+//
+//    public void setSex(String sex) {
+//        this.sex = sex;
+//    }
+//
+//    public String getEpicNumber() {
+//        return epicNumber;
+//    }
+//
+//    public void setEpicNumber(String epicNumber) {
+//        this.epicNumber = epicNumber;
+//    }
+//
+//    public String getPhoto() {
+//        return photo;
+//    }
+//
+//    public void setPhoto(String photo) {
+//        this.photo = photo;
+//    }
 }
 
 

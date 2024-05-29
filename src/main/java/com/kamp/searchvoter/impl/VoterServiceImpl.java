@@ -27,11 +27,19 @@ public class VoterServiceImpl implements VoterService {
     }
 
     @Override
-    public List<Voter> findAllVoters(String keyword) {
-        if (keyword != null) {
-            return voters.stream().filter(s -> s.getFullName().toLowerCase().startsWith(keyword.toLowerCase())).toList();
+    public List<Voter> findAllVoters(String name, String relation) {
+        List<Voter> searchedVoters = new ArrayList<>();
+        if (name != null && !name.isBlank()) {
+            searchedVoters = voters.stream()
+                    .filter(s -> s.getFullName().toLowerCase().startsWith(name.toLowerCase()))
+                    .toList();
+            if (!searchedVoters.isEmpty() && relation != null && !relation.isBlank()) {
+                searchedVoters = searchedVoters.stream()
+                        .filter(s -> s.getRelationName().toLowerCase().startsWith(relation.toLowerCase()))
+                        .toList();
+            }
         }
-        return voters;
+        return searchedVoters;
     }
 
     @Override
@@ -70,11 +78,11 @@ public class VoterServiceImpl implements VoterService {
                         case 3 -> voter.setRelationName(cell.getStringCellValue());
                         case 4 -> voter.setAddress(cell.getStringCellValue());
                         case 5 -> voter.setQualification(cell.getStringCellValue());
-                        case 6 -> voter.setBusiness(cell.getStringCellValue());
-                        case 7 -> voter.setAge((double) cell.getNumericCellValue());
-                        case 8 -> voter.setSex(cell.getStringCellValue());
-                        case 9 -> voter.setEpicNumber(cell.getStringCellValue());
-                        case 10 -> voter.setPhoto(cell.getStringCellValue());
+//                        case 6 -> voter.setBusiness(cell.getStringCellValue());
+//                        case 7 -> voter.setAge((double) cell.getNumericCellValue());
+//                        case 8 -> voter.setSex(cell.getStringCellValue());
+//                        case 9 -> voter.setEpicNumber(cell.getStringCellValue());
+//                        case 10 -> voter.setPhoto(cell.getStringCellValue());
                         default -> {
 
                         }

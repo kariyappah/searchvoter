@@ -12,16 +12,17 @@
 </head>
 <body>
         <div class="container">
-            <form th:action="@{/}" method="get" class="row g-2">
-                <div class="col-auto">
-                    <label for="textsearch" class="visually-hidden">textsearch</label>
-                    <input type="text" class="form-control" id="textsearch" placeholder="Voter Name to Search" name="keyword">
+            <h4>KNOW YOUR ELECTORAL DETAILS</h4>
+            <form th:action="@{/}" method="get" class="row gy-2 gx-3 align-items-center">
+                <div class="col-sm-7">
+                <div class="input-group">
+                    <label for="firstname" class="visually-hidden">firstname</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="Name of the Elector" name="name" th:value="${name}">
+                    <label for="relationname" class="visually-hidden">relationname</label>
+                    <input type="text" class="form-control" id="relationname" placeholder="Name of Father/Mother/Husband" name="relation" th:value="${relation}">
+                    <button type="submit" class="btn btn-primary">Search</button>
                 </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3">Search</button>
                 </div>
-<!--                <input id="textsearch" type="text" name="keyword">-->
-<!--                <button type="submit" class="btn btn-primary mb-3">Go</button>-->
             </form>
 
             <table class="table">
@@ -33,11 +34,11 @@
                     <th scope="col">Name of Father/Mother/Husband</th>
                     <th scope="col">Address (Place of Ordinary Residence)</th>
                     <th scope="col">Qualification</th>
-                    <th scope="col">Business</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Sex</th>
-                    <th scope="col">EPIC Number</th>
-                    <th scope="col">Photo of the elector</th>
+<!--                    <th scope="col">Business</th>-->
+<!--                    <th scope="col">Age</th>-->
+<!--                    <th scope="col">Sex</th>-->
+<!--                    <th scope="col">EPIC Number</th>-->
+<!--                    <th scope="col">Photo of the elector</th>-->
                 </tr>
                 </thead>
                 <tbody>
@@ -48,11 +49,11 @@
                     <td th:text="${voter.relationName}">RelationName</td>
                     <td th:text="${voter.address}">Address</td>
                     <td th:text="${voter.qualification}">Qualification</td>
-                    <td th:text="${voter.business}">Business</td>
-                    <td th:text="${voter.age}">Age</td>
-                    <td th:text="${voter.sex}">Sex</td>
-                    <td th:text="${voter.epicNumber}">EPICNumber</td>
-                    <td th:text="${voter.photo}">Photo</td>
+<!--                    <td th:text="${voter.business}">Business</td>-->
+<!--                    <td th:text="${voter.age}">Age</td>-->
+<!--                    <td th:text="${voter.sex}">Sex</td>-->
+<!--                    <td th:text="${voter.epicNumber}">EPICNumber</td>-->
+<!--                    <td th:text="${voter.photo}">Photo</td>-->
                 </tr>
                 </tbody>
             </table>

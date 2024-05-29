@@ -18,16 +18,19 @@ public class VoterController {
     }
 
     @GetMapping("/")
-    public String getHomePage(Model model, @RequestParam(value = "keyword", required = false) String keyword) {
-        List<Voter> allVoters = voterService.findAllVoters();
-        if (keyword == null || keyword.isBlank()) {
-            model.addAttribute("voters", allVoters);
+    public String getHomePage(Model model, @RequestParam(value = "name", required = false) String name,
+                              @RequestParam(value = "relation", required = false) String relation) {
+        voterService.findAllVoters();
+        if (name == null || name.isBlank()) {
+//            model.addAttribute("voters", allVoters);
+            model.addAttribute("voters", new ArrayList<Voter>());
         } else {
-            List<Voter> voters = voterService.findAllVoters(keyword);
+            List<Voter> voters = voterService.findAllVoters(name, relation);
             model.addAttribute("voters", new ArrayList<Voter>());
             model.addAttribute("voters", voters);
         }
-        model.addAttribute("keyword", keyword);
+        model.addAttribute("name", name);
+        model.addAttribute("relation", relation);
         return "home";
     }
 }
